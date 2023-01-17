@@ -1,0 +1,558 @@
+﻿
+@inject Microsoft.AspNetCore.Identity.SignInManager<BL.ApplicationUser> signInManager
+@inject Microsoft.AspNetCore.Identity.UserManager<BL.ApplicationUser> userManager
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>لوحة تحكم تطبيق المحامي</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="~/Admin/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Admin/plugins/daterangepicker/daterangepicker.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+   <!-- Bootstrap Color Picker -->
+    <link rel="stylesheet" href="~/Admin/plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+
+    <!-- Select2 -->
+    <link rel="stylesheet" href="~/Admin/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- Bootstrap4 Duallistbox -->
+    <link rel="stylesheet" href="~/Admin/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+  <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+
+
+
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="~/Admin/plugins/jqvmap/jqvmap.min.css">
+    <link rel="stylesheet" href="~/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="~/Admin/dist/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="~/Admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  
+  <!-- summernote -->
+    <link rel="stylesheet" href="~/Admin/plugins/summernote/summernote-bs4.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <!-- Bootstrap 4 RTL -->
+  <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" crossorigin="anonymous" />
+  <!-- Custom style for RTL -->
+    <link rel="stylesheet" href="~/Admin/dist/css/custom.css">
+
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/Admin/Home/Index" class="nav-link">Home</a>
+      </li>
+    
+    </ul>
+
+  
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav mr-auto-navbav">
+      
+    
+      <li class="nav-item">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">
+          <i class="fas fa-th-large"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/Admin/Home/Index" class="brand-link">
+      <img src="~/Admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">لوحة تحكم التطبيق</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      @*  <div class="image">
+          <img src="~/Admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        </div>*@
+        <div class="info">
+                        <a style="font-size:smaller; color:white" class="d-block">@userManager.GetUserAsync(User).Result.FirstName</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+          <ul id="main-menu-navigation" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+
+                            <li class="nav-header"> الاستشارات الرئيسية</li>
+                            <li class=" nav-item">
+                  <a  href="/Admin/MainConsulting/Index" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p> عرض الاستشارات الرئيسية</p>
+                </a>
+              </li>
+                            <li class=" nav-item">
+                 <a href="/Admin/MainConsulting/Form" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>اضف الاستشارات الرئيسية</p>
+                </a>
+              </li>
+            
+
+                        <li class="nav-header">عن التطبيق</li>
+                        <li class=" nav-item">
+                <a href="/Admin/AboutApp/Index" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                 <p> عرض عن التطبيق</p>
+                </a>
+              </li>
+                        <li class=" nav-item">
+                <a href="/Admin/AboutApp/Form" class="nav-link ">
+                <i class="far fa-circle nav-icon"></i>
+                <p>اضف عن التطبيق</p>
+                </a>
+              </li>
+
+
+                            <li class="nav-header">المكاتب المعتمدة</li>
+                            <li class=" nav-item">
+                            <a href="/Admin/ApprovedOffice/Index" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p> عرض المكاتب المعتمدة</p>
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                            <a href="/Admin/ApprovedOffice/Form" class="nav-link ">
+                                    <i class="far fa-circle nav-icon"></i>
+                                <p>اضف المكاتب المعتمدة</p>
+                                </a>
+                            </li>
+
+                        <li class="nav-header">الشحن</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Charge/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الشحن</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Charge/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الشحن</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">الشكاوي و الاقتراحات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ComplainsAndSuggestion/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الشكاوي و الاقتراحات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ComplainsAndSuggestion/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الشكاوي و الاقتراحات</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">انشاء الاستشارة</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ConsultingEstablish/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض انشاء الاستشارة</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ConsultingEstablish/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف انشاء الاستشارة</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">نوع الاستشارة</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ConsultingType/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض نوع الاستشارة</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ConsultingType/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف نوع الاستشارة</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">توثيق العقود</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/DocumentationOfContract/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض توثيق العقود</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/DocumentationOfContract/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف توثيق العقود</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">التقييمات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Evaluation/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض التقييمات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Evaluation/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف التقييمات</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">الاشعارات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Notification/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الاشعارات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Notification/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الاشعارات</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">العروض</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Offer/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض العروض</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Offer/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف العروض</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">السياسة و الخصوصية</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PoliciesAndPrivacy/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض السياسة و الخصوصية</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PoliciesAndPrivacy/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف السياسة و الخصوصية</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">البروموكود</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Promocode/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض البروموكود</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Promocode/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف البروموكود</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">الاعدادات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Setting/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الاعدادات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Setting/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الاعدادات</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">الاستشارات الفرعية</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SubMainConsulting/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الاستشارات الفرعية</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SubMainConsulting/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الاستشارات الفرعية</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">الشروط و الاحكام</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/TermAndCondition/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض الشروط و الاحكام</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/TermAndCondition/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف الشروط و الاحكام</p>
+                            </a>
+                        </li>
+            
+         
+         
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+   <partial name="_Notifications" />
+  @RenderBody()
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+   <strong>Copyright &copy; 2023 <a href="http://adminlte.io">Eibtek Software Solutions</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+     
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+    <script src="~/Admin/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="~/Admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 rtl -->
+<script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="~/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="~/Admin/plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="~/Admin/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="~/Admin/plugins/inputmask/jquery.inputmask.bundle.js"></script>
+<script src="~/Admin/plugins/moment/moment.min.js"></script>
+<!-- ChartJS -->
+  
+<script src="~/Admin/plugins/datatables/jquery.dataTables.js"></script>
+<script src="~/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
+<script src="~/Admin/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="~/Admin/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="~/Admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="~/Admin/plugins/jqvmap/maps/jquery.vmap.world.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="~/Admin/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="~/Admin/plugins/moment/moment.min.js"></script>
+<script src="~/Admin/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="~/Admin/plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="~/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="~/Admin/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="~/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="~/Admin/dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="~/Admin/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+
+<script src="~/Admin/dist/js/demo.js"></script>
+    <script>
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2({
+                theme: 'bootstrap4'
+            })
+
+            //Datemask dd/mm/yyyy
+            $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+            //Datemask2 mm/dd/yyyy
+            $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+            //Money Euro
+            $('[data-mask]').inputmask()
+
+            //Date range picker
+            $('#reservation').daterangepicker()
+            //Date range picker with time picker
+            $('#reservationtime').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            })
+            //Date range as a button
+            $('#daterange-btn').daterangepicker(
+                {
+                    ranges: {
+                        'Today': [moment(), moment()],
+                        'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                        'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                        'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                        'This Month': [moment().startOf('month'), moment().endOf('month')],
+                        'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                    },
+                    startDate: moment().subtract(29, 'days'),
+                    endDate: moment()
+                },
+                function (start, end) {
+                    $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+                }
+            )
+
+            //Timepicker
+            $('#timepicker').datetimepicker({
+                format: 'LT'
+            })
+
+            //Bootstrap Duallistbox
+            $('.duallistbox').bootstrapDualListbox()
+
+            //Colorpicker
+            $('.my-colorpicker1').colorpicker()
+            //color picker with addon
+            $('.my-colorpicker2').colorpicker()
+
+            $('.my-colorpicker2').on('colorpickerChange', function (event) {
+                $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+            });
+        })
+    </script>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+            });
+        });
+    </script>
+     <script type="text/javascript">
+        var currentlocation =location.href;
+        var header = document.getElementById("main-menu-navigation");
+          
+        var btns = document.querySelectorAll(".nav-link");
+        var trees = document.querySelectorAll(".nav-item has-treeview");
+       console.log(trees);
+        //console.log(currentlocation);
+        //console.log(header);
+        //console.log(btns.length);
+        //console.log(btns);
+        //console.log(btns[0].href);
+        //console.log(btns[0].parentNode);
+        for (let i = 0; i < btns.length; i++) {
+           
+             if(btns[i].href  === currentlocation) {
+              
+                    //var current = document.getElementsByClassName("active");
+                  
+                    //current[0].className = current[0].className.replace(" active", "");
+                //console.log(btns[0].parentNode.className);
+                btns[i].className ='nav-link active';
+                for(let f=0; f<trees.length; f++) 
+                {
+                    alert("ahmed");
+                    if (trees[f].className === 'nav-item has-treeview') {
+                         alert("ahmed");
+                         console.log(trees[i].className);
+                        trees[f].className = 'nav-item has-treeview menu-open';
+                     }
+                }
+               
+                //btns[i].parentNode.parentNode.className = 'nav nav-treeview menu-open';
+                //console.log(btns[i].closest('.nav-item has-treeview').className);
+                //console.log($(this).parent());
+
+                //$(this).parent().parent().addClass('menu-open');
+              
+                   
+              
+               
+            }
+           
+       }
+    </script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+
+
