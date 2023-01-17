@@ -27,6 +27,6 @@ namespace Domains
         public string CreatedDate { get; set; }
         public string UpdatedDate { get; set; }
         public string Notes { get; set; }
-        public string CurrentState { get; set; }
+        public int CurrentState { get; set; }
     }
 }

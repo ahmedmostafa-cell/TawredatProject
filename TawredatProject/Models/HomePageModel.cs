@@ -63,7 +63,41 @@ namespace TawredatProject.Models
         public IEnumerable<TbTermAndCondition> lstTermAndConditions { get; set; }
 
 
+        public IEnumerable<TbAddress> lstAddresses { get; set; }
 
+
+        public IEnumerable<TbCity> lstCities { get; set; }
+
+        public IEnumerable<TbDelivery> lstDeliveries { get; set; }
+
+
+        public IEnumerable<TbEvaluationDelivery> lstEvaluationDeliveries { get; set; }
+
+
+        public IEnumerable<TbEvaluationSupplierProduct> lstEvaluationSupplierProducts { get; set; }
+
+
+        public IEnumerable<TbFavourite> lstFavourites { get; set; }
+
+        public IEnumerable<TbPaymentMethod> lstPaymentMethods { get; set; }
+
+        public IEnumerable<TbProduct> lstProducts { get; set; }
+
+        public IEnumerable<TbProductCategory> lstProductCategories { get; set; }
+
+        public IEnumerable<TbPurchasingCart> lstPurchasingCarts { get; set; }
+
+
+        public IEnumerable<TbSalesInvoice> lstSalesInvoices { get; set; }
+
+        public IEnumerable<TbSalesInvoiceProduct> lstSalesInvoiceProducts { get; set; }
+
+
+        public IEnumerable<TbSlider> lstSliders { get; set; }
+
+        public IEnumerable<TbSupplier> lstSuppliers { get; set; }
+
+        public IEnumerable<TbSupplierProduct> lstSupplierProducts { get; set; }
 
 
 

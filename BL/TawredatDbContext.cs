@@ -467,10 +467,7 @@ namespace BL
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.CurrentState)
-                    .HasMaxLength(8)
-                    .HasDefaultValueSql("((1))")
-                    .IsFixedLength(true);
+                entity.Property(e => e.CurrentState).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Notes).HasMaxLength(200);
 
@@ -845,10 +842,7 @@ namespace BL
                     .HasDefaultValueSql("(getdate())")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.CurrentState)
-                    .HasMaxLength(10)
-                    .HasDefaultValueSql("((1))")
-                    .IsFixedLength(true);
+                entity.Property(e => e.CurrentState).HasDefaultValueSql("((1))");
 
                 entity.Property(e => e.Notes)
                     .HasMaxLength(10)

@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbAboutApp
     {
-        public Guid AboutAppId { get; set; }
+        public Guid? AboutAppId { get; set; }
         public string AboutAppTitle { get; set; }
         public string AboutAppDescription { get; set; }
         public string AboutAppForWhom { get; set; }

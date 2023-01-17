@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>لوحة تحكم تطبيق المحامي</title>
+  <title>لوحة تحكم تطبيق التوريدات</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -109,19 +109,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-                            <li class="nav-header"> الاستشارات الرئيسية</li>
-                            <li class=" nav-item">
-                  <a  href="/Admin/MainConsulting/Index" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p> عرض الاستشارات الرئيسية</p>
-                </a>
-              </li>
-                            <li class=" nav-item">
-                 <a href="/Admin/MainConsulting/Form" class="nav-link ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>اضف الاستشارات الرئيسية</p>
-                </a>
-              </li>
+                           
             
 
                         <li class="nav-header">عن التطبيق</li>
@@ -139,17 +127,17 @@
               </li>
 
 
-                            <li class="nav-header">المكاتب المعتمدة</li>
+                            <li class="nav-header">العناوين</li>
                             <li class=" nav-item">
-                            <a href="/Admin/ApprovedOffice/Index" class="nav-link ">
+                            <a href="/Admin/Address/Index" class="nav-link ">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p> عرض المكاتب المعتمدة</p>
+                                <p> عرض العناوين</p>
                                 </a>
                             </li>
                             <li class=" nav-item">
-                            <a href="/Admin/ApprovedOffice/Form" class="nav-link ">
+                            <a href="/Admin/Address/Form" class="nav-link ">
                                     <i class="far fa-circle nav-icon"></i>
-                                <p>اضف المكاتب المعتمدة</p>
+                                <p>اضف العناوين</p>
                                 </a>
                             </li>
 
@@ -164,6 +152,22 @@
                             <a href="/Admin/Charge/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>اضف الشحن</p>
+                            </a>
+                        </li>
+
+
+
+                        <li class="nav-header">المدن</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/City/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض المدن</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/City/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف المدن</p>
                             </a>
                         </li>
 
@@ -184,62 +188,62 @@
                         </li>
 
 
-                        <li class="nav-header">انشاء الاستشارة</li>
+                        <li class="nav-header">رجال التوصيل</li>
                         <li class=" nav-item">
-                            <a href="/Admin/ConsultingEstablish/Index" class="nav-link ">
+                            <a href="/Admin/Delivery/Index" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> عرض انشاء الاستشارة</p>
+                                <p> عرض رجال التوصيل</p>
                             </a>
                         </li>
                         <li class=" nav-item">
-                            <a href="/Admin/ConsultingEstablish/Form" class="nav-link ">
+                            <a href="/Admin/Delivery/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضف انشاء الاستشارة</p>
-                            </a>
-                        </li>
-
-
-                        <li class="nav-header">نوع الاستشارة</li>
-                        <li class=" nav-item">
-                            <a href="/Admin/ConsultingType/Index" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p> عرض نوع الاستشارة</p>
-                            </a>
-                        </li>
-                        <li class=" nav-item">
-                            <a href="/Admin/ConsultingType/Form" class="nav-link ">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>اضف نوع الاستشارة</p>
+                                <p>اضف رجال التوصيل</p>
                             </a>
                         </li>
 
 
-                        <li class="nav-header">توثيق العقود</li>
+                        <li class="nav-header">تقييم رجال التوصيل </li>
                         <li class=" nav-item">
-                            <a href="/Admin/DocumentationOfContract/Index" class="nav-link ">
+                            <a href="/Admin/EvaluationDelivery/Index" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> عرض توثيق العقود</p>
+                                <p> عرض تقييم رجال التوصيل </p>
                             </a>
                         </li>
                         <li class=" nav-item">
-                            <a href="/Admin/DocumentationOfContract/Form" class="nav-link ">
+                            <a href="/Admin/EvaluationDelivery/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضف توثيق العقود</p>
+                                <p>اضف تقييم رجال التوصيل </p>
                             </a>
                         </li>
 
 
-                        <li class="nav-header">التقييمات</li>
+                        <li class="nav-header">تقييم المنتجات بالتاجر </li>
                         <li class=" nav-item">
-                            <a href="/Admin/Evaluation/Index" class="nav-link ">
+                            <a href="/Admin/EvaluationSupplierProduct/Index" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> عرض التقييمات</p>
+                                <p> عرض تقييم المنتجات بالتاجر</p>
                             </a>
                         </li>
                         <li class=" nav-item">
-                            <a href="/Admin/Evaluation/Form" class="nav-link ">
+                            <a href="/Admin/EvaluationSupplierProduct/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضف التقييمات</p>
+                                <p>اضف تقييم المنتجات بالتاجر</p>
+                            </a>
+                        </li>
+
+
+                        <li class="nav-header">المفضلات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Favourite/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض المفضلات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Favourite/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف المفضلات</p>
                             </a>
                         </li>
 
@@ -275,6 +279,21 @@
                         </li>
 
 
+                        <li class="nav-header">طرق الدفع</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PaymentMethod/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض طرق الدفع</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PaymentMethod/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف طرق الدفع</p>
+                            </a>
+                        </li>
+
+
                         <li class="nav-header">السياسة و الخصوصية</li>
                         <li class=" nav-item">
                             <a href="/Admin/PoliciesAndPrivacy/Index" class="nav-link ">
@@ -290,6 +309,38 @@
                         </li>
 
 
+                         <li class="nav-header">المنتجات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Product/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض المنتجات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Product/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف المنتجات</p>
+                            </a>
+                        </li>
+
+
+
+
+
+                        <li class="nav-header">اقسام المنتجات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ProductCategory/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض اقسام المنتجات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/ProductCategory/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف اقسام المنتجات</p>
+                            </a>
+                        </li>
+
 
                         <li class="nav-header">البروموكود</li>
                         <li class=" nav-item">
@@ -302,6 +353,56 @@
                             <a href="/Admin/Promocode/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>اضف البروموكود</p>
+                            </a>
+                        </li>
+
+
+
+                         <li class="nav-header">سلة المشتريات</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PurchasingCart/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض سلة المشتريات</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/PurchasingCart/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف سلة المشتريات</p>
+                            </a>
+                        </li>
+
+
+
+
+                         <li class="nav-header">فاتورة البيع</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SalesInvoice/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض فاتورة البيع</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SalesInvoice/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف فاتورة البيع</p>
+                            </a>
+                        </li>
+
+
+
+
+                        <li class="nav-header">تفاصيل فاتورة البيع</li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SalesInvoiceProduct/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض تفاصيل فاتورة البيع</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SalesInvoiceProduct/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف تفاصيل فاتورة البيع</p>
                             </a>
                         </li>
 
@@ -322,17 +423,50 @@
                         </li>
 
 
-                        <li class="nav-header">الاستشارات الفرعية</li>
+                        <li class="nav-header"> السليدر</li>
                         <li class=" nav-item">
-                            <a href="/Admin/SubMainConsulting/Index" class="nav-link ">
+                            <a href="/Admin/Slider/Index" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p> عرض الاستشارات الفرعية</p>
+                                <p> عرض السليدر</p>
                             </a>
                         </li>
                         <li class=" nav-item">
-                            <a href="/Admin/SubMainConsulting/Form" class="nav-link ">
+                            <a href="/Admin/Slider/Form" class="nav-link ">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>اضف الاستشارات الفرعية</p>
+                                <p>اضف السليدر</p>
+                            </a>
+                        </li>
+
+
+
+                          <li class="nav-header"> التجار </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Supplier/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض التجار</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/Supplier/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف التجار</p>
+                            </a>
+                        </li>
+
+
+
+
+                          <li class="nav-header"> منتجات التجار </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SupplierProduct/Index" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p> عرض منتجات التجار</p>
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="/Admin/SupplierProduct/Form" class="nav-link ">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>اضف منتجات التجار</p>
                             </a>
                         </li>
 

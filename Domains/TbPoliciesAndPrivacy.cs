@@ -16,6 +16,6 @@ namespace Domains
         public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
         public string Notes { get; set; }
-        public string CurrentState { get; set; }
+        public int CurrentState { get; set; }
     }
 }
