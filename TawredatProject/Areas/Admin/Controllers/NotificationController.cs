@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace TawredatProject.Areas.Admin.Controllers
 {
@@ -18,11 +19,12 @@ namespace TawredatProject.Areas.Admin.Controllers
     {
         NotificationService notificationService;
         TawredatDbContext ctx;
-        public NotificationController(NotificationService NotificationService, TawredatDbContext context)
+        UserManager<ApplicationUser> Usermanager;
+        public NotificationController(UserManager<ApplicationUser> usermanager, NotificationService NotificationService, TawredatDbContext context)
         {
             notificationService = NotificationService;
             ctx = context;
-
+            Usermanager = usermanager;
         }
         [Authorize(Roles = "Admin,الاشعارات")]
         public IActionResult Index()
@@ -44,7 +46,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             if (ITEM.NotificationId == null)
             {
-
+                ITEM.ToWhomName = Usermanager.Users.Where(a => a.Id == ITEM.ToWhomId).FirstOrDefault().FirstName;
 
                 if (ModelState.IsValid)
                 {
@@ -161,7 +163,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             TbNotification oldItem = ctx.TbNotifications.Where(a => a.NotificationId == id).FirstOrDefault();
             oldItem = ctx.TbNotifications.Where(a => a.NotificationId == id).FirstOrDefault();
-
+            ViewBag.cities = Usermanager.Users.ToList();
             return View(oldItem);
         }
     }

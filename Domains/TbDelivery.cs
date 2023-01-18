@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -7,10 +8,12 @@ namespace Domains
 {
     public partial class TbDelivery
     {
-        public Guid DeliveryManId { get; set; }
+        public Guid? DeliveryManId { get; set; }
+        [Required(ErrorMessage = "من فضلك ادخل اسم عامل التوصيل   ")]
         public string DeliveryManName { get; set; }
         public string DeliveryManEvaluationStarts { get; set; }
         public string DeliveryManEvaluationNumber { get; set; }
+        [Required(ErrorMessage = "من فضلك ادخل اسم مدينة  عامل التوصيل   ")]
         public Guid? DeliveryManCityId { get; set; }
         public string DeliveryManCityName { get; set; }
         public Guid? DeliveryManAreaId { get; set; }

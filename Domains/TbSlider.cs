@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbSlider
     {
-        public Guid SliderId { get; set; }
+        public Guid? SliderId { get; set; }
         public string SliderTitle { get; set; }
         public string SliderText { get; set; }
         public string SliderImage { get; set; }

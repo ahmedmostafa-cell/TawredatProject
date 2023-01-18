@@ -9,20 +9,23 @@ using System.Threading.Tasks;
 using System;
 using TawredatProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace TawredatProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class DeliveryController : Controller
     {
+        CityService cityService;
         DeliveryService deliveryService;
 
         TawredatDbContext ctx;
-        public DeliveryController(DeliveryService DeliveryService, TawredatDbContext context)
+        public DeliveryController(CityService CityService,DeliveryService DeliveryService, TawredatDbContext context)
         {
 
             deliveryService = DeliveryService;
             ctx = context;
+            cityService = CityService;
 
         }
         [Authorize(Roles = "Admin,رجال التوصيل")]
@@ -45,7 +48,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             if (ITEM.DeliveryManId == null)
             {
-
+                ITEM.DeliveryManCityName = cityService.getAll().Where(a => a.CityId == ITEM.DeliveryManCityId).FirstOrDefault().CityName;
 
                 if (ModelState.IsValid)
                 {
@@ -162,7 +165,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             TbDelivery oldItem = ctx.TbDeliveries.Where(a => a.DeliveryManId == id).FirstOrDefault();
             oldItem = ctx.TbDeliveries.Where(a => a.DeliveryManId == id).FirstOrDefault();
-
+            ViewBag.cities = cityService.getAll();
             return View(oldItem);
         }
     }

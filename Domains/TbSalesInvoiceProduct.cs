@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbSalesInvoiceProduct
     {
-        public Guid SalesInvoiceProductId { get; set; }
+        public Guid? SalesInvoiceProductId { get; set; }
         public Guid? SalesInvoiceId { get; set; }
         public string DelivryDate { get; set; }
         public string Id { get; set; }

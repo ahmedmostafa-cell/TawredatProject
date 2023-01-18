@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbComplainsAndSuggestion
     {
-        public Guid ComplaintsAndSuggestionsId { get; set; }
+        public Guid? ComplaintsAndSuggestionsId { get; set; }
         public string Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }

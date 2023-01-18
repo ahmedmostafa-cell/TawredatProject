@@ -1,15 +1,15 @@
-﻿@model Domains.TbCharge
+﻿@model Domains.TbDelivery
 <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-                <h1>اضافة الشحن</h1>
+                <h1>اضافة عمال التوصيل</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><a href="#">الشحن</a></li>
-                    <li class="breadcrumb-item active">اضافة الشحن</li>
+                    <li class="breadcrumb-item"><a href="#"> عمال التوصيل</a></li>
+                    <li class="breadcrumb-item active">اضافة عمال التوصيل</li>
             </ol>
           </div>
         </div>
@@ -29,28 +29,50 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-                    <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Charge" asp-action="Save">
+                    <form id="form" enctype="multipart/form-data" method="post" role="form" asp-area="Admin" asp-controller="Delivery" asp-action="Save">
                 <div class="card-body">
                             <div asp-validation-summary="All" class="text-danger"></div>
                   <div class="form-group">
-                                <input type="hidden"  asp-for="ChargeId" >
-                                <label for="exampleInputEmail1">اسم الشخص الشاحن</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="CreatedBy" placeholder="اسم المكتب المعتمد">
-                                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+                                <input type="hidden"  asp-for="DeliveryManId" >
+                                <label for="exampleInputEmail1">اسم  عامل التوصيل</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" asp-for="DeliveryManName" placeholder="اسم  عامل التوصيل">
+                                <span asp-validation-for="DeliveryManName" class="text-danger"></span>
                   </div>
                 
-                  <div class="form-group">
-                                <label for="exampleInputPassword1">قيمة الشحن </label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" asp-for="ChargeValue" placeholder="قيمة الشحن">
-                                <span asp-validation-for="ChargeValue" class="text-danger"></span>
-                   </div>
+                 @* <div class="form-group">
+                                <label for="exampleInputPassword1">اسم المدينة</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" asp-for="CityName" placeholder="اسم المدينة">
+                                <span asp-validation-for="CityName" class="text-danger"></span>
+                   </div>*@
+                 @* <div class="form-group">
+
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <label for="exampleInputPassword1">لوجو المكتب</label>
+                                        <input  required  type="file" name="files" id="selectedFile" />
+                                        <div class="text-danger" id="error"></div>
+                                    </div>
+                                   
+                                </div>
+                  </div>*@
+                @*  <div class="form-group">
+
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <label for="exampleInputPassword1">ملف الرخصة</label>
+                                        <input  required type="file" name="filess" id="selectedFiles" />
+                                        <div class="text-danger" id="error1"></div>
+                                    </div>
+
+                                </div>
+                   </div>*@
 
                             <section class="content">
                                 <div class="container-fluid">
                                     <!-- SELECT2 EXAMPLE -->
                                     <div class="card card-default">
                                         <div class="card-header">
-                                            <h3 class="card-title">نوع الشحن</h3>
+                                            <h3 class="card-title">اسم مدينة عامل التوصيل </h3>
 
 
                                         </div>
@@ -59,14 +81,13 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label>نوع الشحن</label>
-                                                        <select asp-for="ChargeType" class="form-control select2" style="width: 100%;" required>
+                                                        <label> اسم مدينة عامل التوصيل</label>
+                                                        <select asp-for="DeliveryManCityId" asp-items="@(new SelectList(ViewBag.cities , "CityId" , "CityName"))" class="form-control select2" style="width: 100%;" required>
                                                             <option value="">اختر</option>
-                                                            <option value="ايداع">ايداع</option>
-                                                            <option value="ارتجاع">ارتجاع</option>
+                                                           
 
                                                         </select>
-                                                        <span asp-validation-for="ChargeType" class="text-danger"></span>
+                                                        <span asp-validation-for="DeliveryManCityId" class="text-danger"></span>
                                                     </div>
 
                                                 </div>
@@ -114,7 +135,7 @@
     }
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    <script>
+   @* <script>
         //alert("ahmed");
         const logo = document.getElementById('selectedFile');
         const license = document.getElementById('selectedFiles');
@@ -151,5 +172,5 @@
 
 
         });
-    </script>
+    </script>*@
     }

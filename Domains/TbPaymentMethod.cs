@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbPaymentMethod
     {
-        public Guid PaymentMethodId { get; set; }
+        public Guid? PaymentMethodId { get; set; }
         public string PaymentMethodName { get; set; }
         public string PaymentMethodDescription { get; set; }
         public string CreatedBy { get; set; }

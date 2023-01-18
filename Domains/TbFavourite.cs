@@ -7,7 +7,7 @@ namespace Domains
 {
     public partial class TbFavourite
     {
-        public Guid FavouritesId { get; set; }
+        public Guid? FavouritesId { get; set; }
         public string Id { get; set; }
         public string Name { get; set; }
         public Guid? ProductId { get; set; }
