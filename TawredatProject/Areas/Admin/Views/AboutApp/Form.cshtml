@@ -34,6 +34,7 @@
                             <div asp-validation-summary="All" class="text-danger"></div>
                   <div class="form-group">
                                 <input type="hidden"  asp-for="AboutAppId" >
+                                <input type="hidden" asp-for="CreatedDate">
                                 <label for="exampleInputEmail1">عنوان عن التطبيق</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" asp-for="AboutAppTitle" placeholder="نوان عن التطبيق">
                                 <span asp-validation-for="AboutAppTitle" class="text-danger"></span>

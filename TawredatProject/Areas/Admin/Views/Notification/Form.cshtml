@@ -37,6 +37,8 @@
                             <div asp-validation-summary="All" class="text-danger"></div>
                   <div class="form-group">
                                 <input type="hidden"  asp-for="NotificationId" >
+                                <input type="hidden" asp-for="ToWhomName">
+                                <input type="hidden" asp-for="CreatedDate">
                                 <input type="hidden" value=" @userManager.GetUserAsync(User).Result.Id" asp-for="SenderId">
                                 <input type="hidden" value=" @userManager.GetUserAsync(User).Result.FirstName" asp-for="SenderName">
 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System;
 using TawredatProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace TawredatProject.Areas.Admin.Controllers
 {
@@ -16,13 +17,14 @@ namespace TawredatProject.Areas.Admin.Controllers
     public class ProductController : Controller
     {
         ProductService productService;
-
+        ProductCategoryService productCategoryService;
         TawredatDbContext ctx;
-        public ProductController(ProductService ProductService, TawredatDbContext context)
+        public ProductController(ProductCategoryService ProductCategoryService,ProductService ProductService, TawredatDbContext context)
         {
 
             productService = ProductService;
             ctx = context;
+            productCategoryService = ProductCategoryService;
 
         }
         [Authorize(Roles = "Admin,المنتجات")]
@@ -45,7 +47,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             if (ITEM.ProductId == null)
             {
-
+                ITEM.ProductCategoryName = productCategoryService.getAll().Where(a => a.ProductCategoryId == ITEM.ProductCategoryId).FirstOrDefault().ProductCategoryName;
 
                 if (ModelState.IsValid)
                 {
@@ -63,7 +65,11 @@ namespace TawredatProject.Areas.Admin.Controllers
                     //    }
                     //}
 
-
+                    if(ITEM.DiscountPercent!=null) 
+                    {
+                        int newPrice = int.Parse(ITEM.ProductPrice) - ((int.Parse(ITEM.ProductPrice) * int.Parse(ITEM.DiscountPercent)) / 100);
+                        ITEM.ProductNewPrice = newPrice.ToString();
+                    }
 
 
 
@@ -102,7 +108,11 @@ namespace TawredatProject.Areas.Admin.Controllers
 
 
 
-
+                    if (ITEM.DiscountPercent != null)
+                    {
+                        int newPrice = int.Parse(ITEM.ProductPrice) - ((int.Parse(ITEM.ProductPrice) * int.Parse(ITEM.DiscountPercent)) / 100);
+                        ITEM.ProductNewPrice = newPrice.ToString();
+                    }
 
 
                     var result = productService.Edit(ITEM);
@@ -162,7 +172,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             TbProduct oldItem = ctx.TbProducts.Where(a => a.ProductId == id).FirstOrDefault();
             oldItem = ctx.TbProducts.Where(a => a.ProductId == id).FirstOrDefault();
-
+            ViewBag.cities = productCategoryService.getAll();
             return View(oldItem);
         }
     }

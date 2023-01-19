@@ -1,0 +1,147 @@
+﻿@model TawredatProject.Models.HomePageModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>عرض تفاصيل الفواتير  </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">تفاصيل الفواتير   </a></li>
+                    <li class="breadcrumb-item active">عرض تفاصيل الفواتير   </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+
+
+            <div class="card">
+                <div class="card-header">
+                   
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped ">
+                        <thead>
+                            <tr>
+                                <th> رقم الفاتورة </th>
+
+                                <th>اسم المشتري </th>
+                                <th>اسم رجل التوصيل </th>
+
+                                <th>اسم التاجر     </th>
+                                <th>اسم المنتج     </th>
+                                <th>صورة المنتج     </th>
+                                <th>سعر المنتج     </th>
+
+                                <th>كمية المنتج  </th>
+                                <th>اسم قسم المنتج     </th>
+
+                                <th>اجمالي قيمة المنتج       </th>
+                               
+
+
+                                <th>التاريخ  </th>
+                              
+                              
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.lstSalesInvoiceProducts)
+                            {
+
+                                <tr>
+                                    <td>@item.SalesInvoiceId</td>
+                                  
+                                    <td>
+                                        @item.Name
+                                    </td>
+                                    <td>
+                                        @item.DeliveryManName
+                                    </td>
+                                   
+                                    
+                                    <td>
+                                        @item.SupplierName
+                                    </td>
+                                    <td>
+                                        @item.ProductName
+                                    </td>
+
+                                    <td style="width:10%">
+
+                                        <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.ProductImage)" alt="Img placeholder">
+
+
+
+
+
+                                    </td>
+                                    <td>
+                                        @item.ProductPrice
+                                   
+                                     <td>
+                                        @item.ProductQty
+                                    </td>
+                                    <td>
+                                        @item.ProductCategoryName
+                                    </td>
+                                  
+                                    <td>
+                                        @item.TotalProductValue
+                                    </td>
+                                   
+                                  
+                                    <td>
+                                        @item.CreatedDate
+                                    </td>
+
+                                
+                                   
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th> رقم الفاتورة </th>
+
+                                <th>اسم المشتري </th>
+                                <th>اسم رجل التوصيل </th>
+
+                                <th>اسم التاجر     </th>
+                                <th>اسم المنتج     </th>
+                                <th>صورة المنتج     </th>
+                                <th>سعر المنتج     </th>
+                               
+                                <th>كمية المنتج  </th>
+                                <th>اسم قسم المنتج     </th>
+                               
+                                <th>اجمالي قيمة المنتج       </th>
+                               
+
+
+                                <th>التاريخ  </th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

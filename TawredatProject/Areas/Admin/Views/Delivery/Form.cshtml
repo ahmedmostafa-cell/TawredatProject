@@ -34,6 +34,8 @@
                             <div asp-validation-summary="All" class="text-danger"></div>
                   <div class="form-group">
                                 <input type="hidden"  asp-for="DeliveryManId" >
+                                <input type="hidden" asp-for="CreatedDate">
+                                <input type="hidden" asp-for="DeliveryManCityName">
                                 <label for="exampleInputEmail1">اسم  عامل التوصيل</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" asp-for="DeliveryManName" placeholder="اسم  عامل التوصيل">
                                 <span asp-validation-for="DeliveryManName" class="text-danger"></span>

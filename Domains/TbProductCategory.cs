@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -8,7 +9,9 @@ namespace Domains
     public partial class TbProductCategory
     {
         public Guid? ProductCategoryId { get; set; }
+        [Required(ErrorMessage = "من فضلك ادخل اسم  قسم المنتج ")]
         public string ProductCategoryName { get; set; }
+        [Required(ErrorMessage = "من فضلك ادخل وصف  قسم المنتج ")]
         public string ProductCategoryDescription { get; set; }
         public string ProductCategoryImage { get; set; }
         public string CreatedBy { get; set; }

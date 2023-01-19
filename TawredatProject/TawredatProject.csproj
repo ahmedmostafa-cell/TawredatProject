@@ -25,17 +25,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Views\EvaluationDelivery\" />
-    <Folder Include="Areas\Admin\Views\EvaluationSupplierProduct\" />
-    <Folder Include="Areas\Admin\Views\Favourite\" />
-    <Folder Include="Areas\Admin\Views\Offer\" />
-    <Folder Include="Areas\Admin\Views\PaymentMethod\" />
-    <Folder Include="Areas\Admin\Views\ProductCategory\" />
-    <Folder Include="Areas\Admin\Views\Product\" />
-    <Folder Include="Areas\Admin\Views\PurchasingCart\" />
-    <Folder Include="Areas\Admin\Views\SalesInvoice\" />
-    <Folder Include="Areas\Admin\Views\Slider\" />
-    <Folder Include="Areas\Admin\Views\Supplier\" />
+    <Content Update="Areas\Admin\Views\Product\Form.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

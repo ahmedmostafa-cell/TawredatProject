@@ -10,20 +10,28 @@ using System;
 using TawredatProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
+using Microsoft.AspNetCore.Identity;
 
 namespace TawredatProject.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class SupplierProductController : Controller
     {
+        ProductCategoryService productCategoryService;
+        CityService cityService;
         SupplierProductService supplierProductService;
-
+        SupplierService supplierService;
+        ProductService productService;
         TawredatDbContext ctx;
-        public SupplierProductController(SupplierProductService SupplierProductService, TawredatDbContext context)
+        public SupplierProductController(ProductCategoryService ProductCategoryService,CityService CityService,SupplierService SupplierService,ProductService ProductService,SupplierProductService SupplierProductService, TawredatDbContext context)
         {
 
             supplierProductService = SupplierProductService;
             ctx = context;
+            productService = ProductService;
+            supplierService = SupplierService;
+            cityService = CityService;
+            productCategoryService = ProductCategoryService;
 
         }
         [Authorize(Roles = "Admin,منتجات التجار")]
@@ -46,7 +54,8 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             if (ITEM.SupplierProductId == null)
             {
-
+                ITEM.SupplierName = supplierService.getAll().Where(a => a.SupplierId == ITEM.SupplierId).FirstOrDefault().SupplierName;
+                ITEM.ProductName = productService.getAll().Where(a => a.ProductId == ITEM.ProductId).FirstOrDefault().ProductName;
 
                 if (ModelState.IsValid)
                 {
@@ -163,7 +172,10 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             TbSupplierProduct oldItem = ctx.TbSupplierProducts.Where(a => a.SupplierProductId == id).FirstOrDefault();
             oldItem = ctx.TbSupplierProducts.Where(a => a.SupplierProductId == id).FirstOrDefault();
-
+            ViewBag.cities = productService.getAll();
+            ViewBag.suppliers = supplierService.getAll();
+            ViewBag.realCities = cityService.getAll();
+            ViewBag.productCategories = productCategoryService.getAll();
             return View(oldItem);
         }
     }

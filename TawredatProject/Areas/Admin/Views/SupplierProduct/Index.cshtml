@@ -1,0 +1,147 @@
+﻿@model TawredatProject.Models.HomePageModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>عرض منتجات بالتاجر </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">المنتجات بالتاجر </a></li>
+                    <li class="breadcrumb-item active">عرض المنتجات بالتاجر </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+
+
+            <div class="card">
+                <div class="card-header">
+                   
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped ">
+                        <thead>
+                            <tr>
+                                <th>اسم المنتج </th>
+                                <th>اسم التاجر </th>
+                                <th>صورة المنتج</th>
+                                <th>تقييم المنتج بالنجوم</th>
+                               
+                                <th>سعر المنتج</th>
+                                <th>مدينة التاجر</th>
+                                <th>قسم المنتج</th>
+                                <th>اقصي كمية مسموحة للبيع </th>
+                                <th>وصف المنتج</th>
+                                
+                              
+                              
+                                <th>التاريخ</th>
+                                <th>تعديل</th>
+                               
+                                <th>حذف</th>
+                              
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.lstSupplierProducts)
+                            {
+
+                                <tr>
+                                    <td>@item.ProductName</td>
+                                    <td>
+                                        @item.SupplierName
+                                    </td>
+                                    <td style="width:10%">
+
+                                        <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.ProductImage)" alt="Img placeholder">
+
+
+
+
+
+                                    </td>
+                                    <td>
+                                        @item.ProductEvaluationStars
+                                    </td>
+                                 
+                                     <td>
+                                        @item.ProductPrice
+                                    </td>
+                                     <td>
+                                        @item.SupplierCityName
+                                    </td>
+                                    <td>
+                                        @item.ProductCategoryName
+                                    </td>
+                                    <td>
+                                        @item.ProductMaximumSaleQty
+                                    </td>
+                                    <td>
+                                        @item.ProductDescription
+                                    </td>
+                                    <td>
+                                        @item.CreatedDate
+                                    </td>
+
+                                  
+                                  
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="SupplierProduct" asp-action="Form" asp-route-id="@item.SupplierProductId" class="btn btn-info text-white" style="cursor:pointer">
+                                            تعديل
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="SupplierProduct" asp-action="Delete" asp-route-id="@item.SupplierProductId" class="btn btn-danger text-white" style="cursor:pointer">
+                                            حذف
+                                        </a>
+                                    </td>
+                                  
+                                   
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>اسم المنتج </th>
+                                <th>اسم التاجر </th>
+                                <th>صورة المنتج</th>
+                                <th>تقييم المنتج بالنجوم</th>
+                              
+                                <th>سعر المنتج</th>
+                                <th>مدينة التاجر</th>
+                                <th>قسم المنتج</th>
+                                <th>اقصي كمية مسموحة للبيع </th>
+                                <th>وصف المنتج</th>
+
+
+
+                                <th>التاريخ</th>
+                                <th>تعديل</th>
+
+                                <th>حذف</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->

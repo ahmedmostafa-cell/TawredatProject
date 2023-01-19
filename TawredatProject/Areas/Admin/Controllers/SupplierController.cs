@@ -10,6 +10,7 @@ using System;
 using TawredatProject.Models;
 using Microsoft.AspNetCore.Authorization;
 using System.IO;
+using Microsoft.AspNetCore.Identity;
 
 namespace TawredatProject.Areas.Admin.Controllers
 {
@@ -17,13 +18,14 @@ namespace TawredatProject.Areas.Admin.Controllers
     public class SupplierController : Controller
     {
         SupplierService supplierService;
-
+        CityService cityService;
         TawredatDbContext ctx;
-        public SupplierController(SupplierService SupplierService, TawredatDbContext context)
+        public SupplierController(CityService CityService,SupplierService SupplierService, TawredatDbContext context)
         {
 
             supplierService = SupplierService;
             ctx = context;
+            cityService = CityService;
 
         }
         [Authorize(Roles = "Admin,التجار")]
@@ -46,7 +48,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             if (ITEM.SupplierId == null)
             {
-
+                ITEM.SupplierCityName = cityService.getAll().Where(a => a.CityId == ITEM.SupplierCityId).FirstOrDefault().CityName;
 
                 if (ModelState.IsValid)
                 {
@@ -163,7 +165,7 @@ namespace TawredatProject.Areas.Admin.Controllers
         {
             TbSupplier oldItem = ctx.TbSuppliers.Where(a => a.SupplierId == id).FirstOrDefault();
             oldItem = ctx.TbSuppliers.Where(a => a.SupplierId == id).FirstOrDefault();
-
+            ViewBag.cities = cityService.getAll();
             return View(oldItem);
         }
     }

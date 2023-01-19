@@ -1,0 +1,118 @@
+﻿@model TawredatProject.Models.HomePageModel
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>عرض التجار </h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">التجار </a></li>
+                    <li class="breadcrumb-item active">عرض التجار </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+
+
+            <div class="card">
+                <div class="card-header">
+                   
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped ">
+                        <thead>
+                            <tr>
+                                <th>اسم التاجر </th>
+                                <th>تقييم التاجر بالنجوم </th>
+                                <th>تقييم التاجر بالنسبة </th>
+                                <th>صورة التاجر </th>
+                                <th>عدد العملاء </th
+                                    <th>اسم المدينة </th>
+                                <th>تعديل</th>
+                               
+                                <th>حذف</th>
+                              
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.lstSuppliers)
+                            {
+
+                                <tr>
+                                    <td>@item.SupplierName</td>
+                                    <td>
+                                        @item.SupplierEvaluationStars
+                                    </td>
+                                      <td>
+                                        @item.SupplierEvaluationNumber
+                                    </td>
+                                   
+                                    <td style="width:10%">
+                                       
+                                            <img style="max-width: 100%; " max-height: 100%;" src="@string.Format("/Uploads/{0}",item.SupplierImage)" alt="Img placeholder">
+
+                                           
+                                          
+                                       
+                                       
+                                    </td>
+                                     <td>
+                                        @item.CustomersNumber
+                                    </td>
+                                    <td>
+                                        @item.SupplierCityName
+                                    </td>
+                                   
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Supplier" asp-action="Form" asp-route-id="@item.SupplierId" class="btn btn-info text-white" style="cursor:pointer">
+                                            تعديل
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a asp-area="Admin" asp-controller="Supplier" asp-action="Delete" asp-route-id="@item.SupplierId" class="btn btn-danger text-white" style="cursor:pointer">
+                                            حذف
+                                        </a>
+                                    </td>
+                                  
+                                   
+                                </tr>
+
+                            }
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>اسم التاجر </th>
+                                <th>تقييم التاجر بالنجوم </th>
+                                <th>تقييم التاجر بالنسبة </th>
+                                <th>صورة التاجر </th>
+                                <th>عدد العملاء </th
+                                    <th>اسم المدينة </th>
+                                <th>تعديل</th>
+                               
+                                <th>حذف</th>
+                              
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+<!-- /.content -->
