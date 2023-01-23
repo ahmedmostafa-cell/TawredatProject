@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TawredatProject.Models;
+using TawredatProject.Services;
 
 namespace TawredatProject
 {
@@ -74,6 +75,7 @@ namespace TawredatProject
             services.AddScoped<SupplierService, ClsSupplier>();
             services.AddScoped<SupplierProductService, ClsSupplierProduct>();
             services.AddScoped<TermAndConditionService, ClsTermAndCondition>();
+            services.AddTransient<ISMSService, SMSService>();
             services.AddControllersWithViews();
             services.AddMvc().AddSessionStateTempDataProvider();
             services.AddSession();

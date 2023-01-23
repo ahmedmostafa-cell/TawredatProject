@@ -16,13 +16,16 @@ using System.Linq;
 using EmailService;
 using TawredatProject.Controllers;
 using TawredatProject;
+using TawredatProject.Dtos;
+using TawredatProject.Services;
+using System.Web;
 
 namespace AlMohamyProject.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-       
+        private readonly ISMSService _smsService;
         private readonly TawredatDbContext _db;
         private readonly UserManager<ApplicationUser> _userManager;
         //one
@@ -31,7 +34,7 @@ namespace AlMohamyProject.Controllers
         //private readonly IEmailSender _emailSender;
         private readonly UrlEncoder _urlEncoder;
         private readonly IEmailSender _emailSender;
-        public AccountController(IEmailSender emailSender, TawredatDbContext db,  UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
+        public AccountController(ISMSService smsService, IEmailSender emailSender, TawredatDbContext db,  UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
             UrlEncoder urlEncoder, RoleManager<IdentityRole> roleManager)
         {
             _userManager = userManager;
@@ -41,7 +44,7 @@ namespace AlMohamyProject.Controllers
             _roleManager = roleManager;
             _emailSender = emailSender;
             _db = db;
-           
+            _smsService = smsService;
         }
       
 
@@ -92,7 +95,22 @@ namespace AlMohamyProject.Controllers
             returnurl = returnurl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.Name,  };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, FirstName = model.Name, };
+                //SendSMSDto dto = new SendSMSDto();
+                //dto.MobileNumber = user.PhoneNumber;
+
+                //var codeS = await _userManager.GenerateTwoFactorTokenAsync(user, "Phone");
+
+                //user.OTP = codeS;
+
+
+
+                //var message = "Your security code is: " + codeS;
+                //dto.Body = message;
+                //String messag = HttpUtility.UrlEncode("test test agin ");
+                //String sender = HttpUtility.UrlEncode("Meam");
+
+                //var resultt = _smsService.Send("31b01279bf48a7bc3d40b497adcfa409466eb30a", "966544140910", "966591351435", messag, sender);
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
