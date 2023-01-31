@@ -1,11 +1,12 @@
 ﻿
 
 using System;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace TawredatProject.Services
 {
     public interface ISMSService
     {
-         public string Send(String apiKey, String username, String numbers, String message, String sender);
+        MessageResource Send(string mobileNumber, string body);
     }
 }

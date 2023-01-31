@@ -12,6 +12,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TawredatProject.Controllers;
+using TawredatProject.Helpers;
 using TawredatProject.Models;
 using TawredatProject.Services;
 
@@ -75,6 +77,8 @@ namespace TawredatProject
             services.AddScoped<SupplierService, ClsSupplier>();
             services.AddScoped<SupplierProductService, ClsSupplierProduct>();
             services.AddScoped<TermAndConditionService, ClsTermAndCondition>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
+            services.Configure<TwilioSettings>(Configuration.GetSection("Twilio"));
             services.AddTransient<ISMSService, SMSService>();
             services.AddControllersWithViews();
             services.AddMvc().AddSessionStateTempDataProvider();
@@ -82,15 +86,18 @@ namespace TawredatProject
             services.AddDbContext<TawredatDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
-                options.Password.RequiredLength = 5;
-                options.Password.RequireLowercase = true;
+                options.Password.RequiredLength = 1;
+                options.Password.RequireLowercase = false;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
-                options.User.RequireUniqueEmail = true;
+                options.User.RequireUniqueEmail = false;
+                options.SignIn.RequireConfirmedEmail = false;
+                options.User.AllowedUserNameCharacters = "";
                 options.Password.RequireDigit = false;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromSeconds(30);
                 options.Lockout.MaxFailedAccessAttempts = 5;
-                //options.SignIn.RequireConfirmedEmail = true;
+
+                options.User.AllowedUserNameCharacters = string.Empty;
 
             }).AddErrorDescriber<CustomIdentityErrorDescriber>().AddEntityFrameworkStores<TawredatDbContext>().AddDefaultTokenProviders();    ///.AddDefaultUI();
 

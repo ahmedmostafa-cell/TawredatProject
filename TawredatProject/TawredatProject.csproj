@@ -16,6 +16,7 @@
     </PackageReference>
     <PackageReference Include="MimeKit" Version="3.4.3" />
     <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+    <PackageReference Include="Twilio" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -34,7 +34,13 @@ namespace BL
 
         public string? ClinicName { get; set; }
         public string? Status { get; set; }
+
+        public string? Latitude { get; set; }
+        public string? Longitute { get; set; }
+        public string? Location { get; set; }
       
+
+
         [NotMapped]
         public string? RoleId { get; set; }
         [NotMapped]
